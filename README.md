@@ -43,9 +43,18 @@ password = <your_pwd>
 database = test
 schema = public
 warehouse = compute_wh
+role = accountadmin
 ```
 
-To keep it simple, we'll try to use almost everywhere only the following simple Python code snippet, to connect to Snowflake through a Snowpark session:
+7) Test your Snowflake connection from local Python code, running from the Terminal window:
+
+```
+python snowflake-test.py
+```
+
+This should show help on the *OneHotEncoder* class from Snowpark ML. Exit with CTRL_C.
+
+To keep it simple, we'll try to use almost everywhere only the following simple Python code snippet (as in the beggining of the *snowflake-test.py* file), to connect to Snowflake through a Snowpark session:
 
 ```
 # connect to your Snowflake account
@@ -54,14 +63,8 @@ from snowflake.ml.utils.connection_params import SnowflakeLoginOptions
 session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
 ```
 
-7) In VSCode, install the [**Snowflake Extension**](https://docs.snowflake.com/en/user-guide/vscode-ext), and manually connect to your Snowflake account.
+8) In VSCode, install the [**Snowflake Extension**](https://docs.snowflake.com/en/user-guide/vscode-ext), and manually connect to your Snowflake account.
 
-8) In your free trial Snowflake account, create a **TEST** database.
+9) In your free trial Snowflake account, create a **TEST** database.
 
-9) Test your Snowflake connection, running from the Terminal window:
-
-```
-python test.py
-```
-
-This should show help on the *OneHotEncoder* class from Snowpark ML. Exit with CTRL_C.
+10) For the ChatGPT connection ...(TODO!) w/ VSCode extension!
