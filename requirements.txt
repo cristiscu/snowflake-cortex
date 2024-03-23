@@ -1,23 +1,10 @@
-# to generate data and for web scraping
-faker
-requests
-beautifulsoup4
-
-# to connect to ChatGPT
-openai
-
-# to connect to Snowflake
-snowflake-snowpark-python[pandas]==1.10.0
-
-# to build Streamlit apps
+snowflake-ml-python[all]
+snowflake-snowpark-python[pandas]
 streamlit
 plotly
-
-# for LlamaIndex demo
+openai
 llama-index
 pypdf
-
-# for LongChain demo
 langchain
 langchain-community
 langchain-openai
