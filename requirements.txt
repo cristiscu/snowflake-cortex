@@ -10,3 +10,4 @@ langchain-community
 langchain-openai
 snowflake-sqlalchemy
 jupyter
+faker
