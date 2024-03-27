@@ -5,8 +5,9 @@ from snowflake.snowpark import Session
 from snowflake.ml.utils.connection_params import SnowflakeLoginOptions
 
 session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
-df = session.table('mydata').limit(5000000)
 
+# create fileset from dataframe
+df = session.table('mydata').limit(5000000)
 fileset1 = fileset.FileSet.make(
     target_stage_loc="@ML_DATASETS.public.my_models/",
     name="from_dataframe",
@@ -14,6 +15,7 @@ fileset1 = fileset.FileSet.make(
     shuffle=True)
 print(*fileset1.files())
 
+# create fileset from running a query
 fileset2 = fileset.FileSet.make(
     target_stage_loc="@ML_DATASETS.public.my_models/",
     name="from_connector",

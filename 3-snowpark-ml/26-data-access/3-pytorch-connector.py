@@ -4,17 +4,17 @@
 import snowflake.ml.fileset as fileset
 from snowflake.snowpark import Session
 from snowflake.ml.utils.connection_params import SnowflakeLoginOptions
+from torch.utils.data import DataLoader
 
+# create fileset from running a query
 session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
-df = session.table('mydata').limit(5000000)
-
-fileset = fileset.FileSet.make(
+fileset1 = fileset.FileSet.make(
     target_stage_loc="@ML_DATASETS.public.my_models/",
-    name="from_dataframe",
-    snowpark_dataframe=df,
+    name="from_connector",
+    snowpark_session=session,
+    query="SELECT * FROM MYDATA LIMIT 5000000",
     shuffle=True)
 
-pipe = fileset.to_torch_datapipe(batch_size=4, shuffle=True, drop_last_batch=True)
-
-from torch.utils.data import DataLoader
+# feed fileset to PyTorch
+pipe = fileset1.to_torch_datapipe(batch_size=4, shuffle=True, drop_last_batch=True)
 for batch in DataLoader(pipe, batch_size=None, num_workers=0): print(batch); break
