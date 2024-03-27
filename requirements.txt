@@ -11,3 +11,4 @@ langchain-openai
 snowflake-sqlalchemy
 jupyter
 faker
+seaborn
