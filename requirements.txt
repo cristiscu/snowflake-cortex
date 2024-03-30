@@ -12,3 +12,4 @@ snowflake-sqlalchemy
 jupyter
 faker
 seaborn
+pandas-profiling

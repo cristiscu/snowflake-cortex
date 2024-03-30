@@ -9,7 +9,7 @@ import urllib.request
 import pandas as pd 
 
 REMOTE_PATH = "https://raw.githubusercontent.com/ageron/handson-ml2/master/datasets/housing/"
-LOCAL_PATH = "../../.datasets/"
+LOCAL_PATH = "../../.spool/datasets/"
 TAR_FILE = "housing.tgz"
 CSV_FILE = "housing.csv"
 
