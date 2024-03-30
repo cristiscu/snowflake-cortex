@@ -16,5 +16,5 @@ fileset1 = fileset.FileSet.make(
     shuffle=True)
 
 # feed fileset to PyTorch
-pipe = fileset1.to_torch_datapipe(batch_size=4, shuffle=True, drop_last_batch=True)
-for batch in DataLoader(pipe, batch_size=None, num_workers=0): print(batch); break
+dataset = fileset1.to_torch_datapipe(batch_size=4, shuffle=True, drop_last_batch=True)
+for batch in DataLoader(dataset, batch_size=None, num_workers=0): print(batch); break

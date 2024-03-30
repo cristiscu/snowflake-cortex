@@ -2,15 +2,15 @@
 
 from snowflake.ml.registry import Registry
 
-reg = Registry(session=sp_session, database_name="ML", schema_name="REGISTRY")
+reg = Registry(session=session, database_name="ML", schema_name="REGISTRY")
 
 mv = reg.log_model(clf,
-                   model_name="my_model",
-                   version_name="1",
-                   conda_dependencies=["scikit-learn"],
-                   comment="My awesome ML model",
-                   metrics={"score": 96},
-                   sample_input_data=train_features)
+    model_name="my_model",
+    version_name="1",
+    conda_dependencies=["scikit-learn"],
+    comment="My awesome ML model",
+    metrics={"score": 96},
+    sample_input_data=train_features)
 
 reg.delete_model("mymodel")
 model_df = reg.show_models()
