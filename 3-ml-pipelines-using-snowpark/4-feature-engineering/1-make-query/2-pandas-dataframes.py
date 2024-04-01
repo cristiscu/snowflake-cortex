@@ -13,7 +13,8 @@ conn = snowflake.connector.connect(
     user=parser.get(section, "username"),
     password=parser.get(section, "password"),
     database=parser.get(section, "database"),
-    schema=parser.get(section, "schema"))
+    schema=parser.get(section, "schema"),
+    session_parameters={ 'QUERY_TAG': 'pandas_queries' })
 
 # Load all HOUSING table records in memory
 query = "SELECT * FROM test.public.housing"
@@ -41,7 +42,7 @@ df = df[filter]
 
 # Aggregate & sort data
 df = df.groupby(['OCEAN_PROXIMITY'])['HOUSEHOLDS'].agg(AVG_HOUSEHOLDS='mean')
-df = df.reset_index()
+df = df.reset_index(drop=True)
 df = df.sort_values('AVG_HOUSEHOLDS')
 #display(df)
 

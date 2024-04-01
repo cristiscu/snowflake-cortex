@@ -3,10 +3,12 @@ import sys
 import numpy as np
 import snowflake.snowpark.functions as F
 from snowflake.snowpark import Session
+from snowflake.ml.utils.connection_params import SnowflakeLoginOptions
 
 # Connect to Snowflake w/ a Snowpark session and SNOWSQL config file data
-from snowflake.ml.utils.connection_params import SnowflakeLoginOptions
-session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
+pars = SnowflakeLoginOptions("test_conn")
+pars["session_parameters"] = { 'QUERY_TAG': 'snowpark_queries' }
+session = Session.builder.configs(pars).create()
 #print(session.sql('select current_warehouse(), current_database(), current_schema()').collect())
 
 # Connect to the HOUSING table (but nothing loaded!)

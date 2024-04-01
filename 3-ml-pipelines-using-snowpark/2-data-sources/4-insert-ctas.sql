@@ -33,13 +33,14 @@ INSERT INTO historical_sales_data VALUES
     (2, 'umbrella', to_timestamp_ntz('2020-01-12'), 5.7, false, 55, 0.2, null),
     (2, 'umbrella', to_timestamp_ntz('2020-01-13'), 6.3, false, 55, 0.2, null),
     (2, 'umbrella', to_timestamp_ntz('2020-01-14'), 2.9, false, 55, 0.2, null);
+SELECT * FROM historical_sales_data;
 
 CREATE OR REPLACE TABLE new_sales_data (
     store_id NUMBER, item VARCHAR, date TIMESTAMP_NTZ, sales FLOAT,
-    temperature NUMBER, humidity NUMBER, holiday VARCHAR);
-
-INSERT INTO new_sales_data VALUES
+    temperature NUMBER, humidity NUMBER, holiday VARCHAR)
+AS SELECT * FROM VALUES
     (1, 'jacket', to_timestamp_ntz('2020-01-16'), 6.0, 52, 0.3, null),
     (1, 'jacket', to_timestamp_ntz('2020-01-17'), 20.0, 53, 0.3, null),
     (2, 'umbrella', to_timestamp_ntz('2020-01-16'), 3.0, 52, 0.3, null),
     (2, 'umbrella', to_timestamp_ntz('2020-01-17'), 70.0, 53, 0.3, null);
+SELECT * FROM new_sales_data;
