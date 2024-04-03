@@ -1,15 +1,18 @@
 -- see https://docs.snowflake.com/en/user-guide/ml-powered-anomaly-detection
-use schema test.public;
+CREATE OR REPLACE DATABASE anomaly;
+USE SCHEMA anomaly.public;
 
-CREATE OR REPLACE TABLE historical_sales_data (
-  store_id NUMBER, item VARCHAR, date TIMESTAMP_NTZ, sales FLOAT, label BOOLEAN,
+CREATE OR REPLACE TABLE sales_table (
+  store_id NUMBER, item VARCHAR,
+  date TIMESTAMP_NTZ, sales FLOAT, outlier BOOLEAN,
   temperature NUMBER, humidity NUMBER, holiday VARCHAR);
 
-INSERT INTO historical_sales_data VALUES
+INSERT INTO sales_table VALUES
+  -- train data store 1 (date < 2020-01-15)
   (1, 'jacket', to_timestamp_ntz('2020-01-01'), 2.0, false, 50, 0.3, 'new year'),
   (1, 'jacket', to_timestamp_ntz('2020-01-02'), 3.0, false, 52, 0.3, null),
   (1, 'jacket', to_timestamp_ntz('2020-01-03'), 5.0, false, 54, 0.2, null),
-  (1, 'jacket', to_timestamp_ntz('2020-01-04'), 30.0, true, 54, 0.3, null),
+  (1, 'jacket', to_timestamp_ntz('2020-01-04'), 30.0, true, 54, 0.3, null),   -- labeled outlier!
   (1, 'jacket', to_timestamp_ntz('2020-01-05'), 8.0, false, 55, 0.2, null),
   (1, 'jacket', to_timestamp_ntz('2020-01-06'), 6.0, false, 55, 0.2, null),
   (1, 'jacket', to_timestamp_ntz('2020-01-07'), 4.6, false, 55, 0.2, null),
@@ -20,6 +23,10 @@ INSERT INTO historical_sales_data VALUES
   (1, 'jacket', to_timestamp_ntz('2020-01-12'), 7.0, false, 55, 0.2, null),
   (1, 'jacket', to_timestamp_ntz('2020-01-13'), 3.6, false, 55, 0.2, null),
   (1, 'jacket', to_timestamp_ntz('2020-01-14'), 8.0, false, 55, 0.2, null),
+  -- test data store 1 (date >= 2020-01-15)
+  (1, 'jacket', to_timestamp_ntz('2020-01-15'), 6.0, false, 52, 0.3, null),
+  (1, 'jacket', to_timestamp_ntz('2020-01-16'), 20.0, false, 53, 0.3, null),
+  -- train data store 2 (date < 2020-01-15)
   (2, 'umbrella', to_timestamp_ntz('2020-01-01'), 3.4, false, 50, 0.3, 'new year'),
   (2, 'umbrella', to_timestamp_ntz('2020-01-02'), 5.0, false, 52, 0.3, null),
   (2, 'umbrella', to_timestamp_ntz('2020-01-03'), 4.0, false, 54, 0.2, null),
@@ -33,5 +40,9 @@ INSERT INTO historical_sales_data VALUES
   (2, 'umbrella', to_timestamp_ntz('2020-01-11'), 3.7, false, 55, 0.2, null),
   (2, 'umbrella', to_timestamp_ntz('2020-01-12'), 5.7, false, 55, 0.2, null),
   (2, 'umbrella', to_timestamp_ntz('2020-01-13'), 6.3, false, 55, 0.2, null),
-  (2, 'umbrella', to_timestamp_ntz('2020-01-14'), 2.9, false, 55, 0.2, null);
-  
+  (2, 'umbrella', to_timestamp_ntz('2020-01-14'), 2.9, false, 55, 0.2, null),
+  -- test data store 2 (date >= 2020-01-15)
+  (2, 'umbrella', to_timestamp_ntz('2020-01-15'), 3.0, false, 52, 0.3, null),
+  (2, 'umbrella', to_timestamp_ntz('2020-01-16'), 70.0, false, 53, 0.3, null);
+
+SELECT * FROM sales_table;
