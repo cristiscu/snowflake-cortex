@@ -13,3 +13,4 @@ jupyter
 faker
 seaborn
 pandas-profiling
+ydata_profiling
