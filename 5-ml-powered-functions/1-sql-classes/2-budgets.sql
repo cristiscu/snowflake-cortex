@@ -1,19 +1,3 @@
-ALTER SESSION SET SEARCH_PATH = '$current, $public, snowflake.ml';
-SHOW PARAMETERS LIKE 'search_path';
-
-SHOW CLASSES IN DATABASE SNOWFLAKE;
-SHOW FUNCTIONS IN CLASS ANOMALY_DETECTION;
-SHOW PROCEDURES IN CLASS ANOMALY_DETECTION;
-
-CREATE ANOMALY_DETECTION db.schema.obj(...);
-CALL db.schema.obj!DETECT_ANOMALIES(...);
-
-SHOW ANOMALY_DETECTION; 		-- show all instances
-DROP ANOMALY_DETECTION obj;		-- drop class instance
-
-ALTER CLASSIFICATION name RENAME TO ... / SET/UNSET TAG/COMMENT ...;
-
--- ===============================================================
 -- account budget (built-in instance!)
 CALL SNOWFLAKE.LOCAL.account_root_budget!ACTIVATE();
 CALL SNOWFLAKE.LOCAL.account_root_budget!SET_SPENDING_LIMIT(1000);

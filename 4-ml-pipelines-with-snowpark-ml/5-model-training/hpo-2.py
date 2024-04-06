@@ -3,31 +3,23 @@
 from snowflake.ml.modeling.ensemble.random_forest_regressor import RandomForestRegressor
 from snowflake.ml.modeling.model_selection.grid_search_cv import GridSearchCV
 from sklearn import datasets
+from snowflake.snowpark import Session
+from snowflake.ml.utils.connection_params import SnowflakeLoginOptions
 
-def load_housing_data() -> DataFrame:
-    input_df_pandas = datasets.fetch_california_housing(as_frame=True).frame
-    # Set the columns to be upper case for consistency with Snowflake identifiers.
-    input_df_pandas.columns = [c.upper() for c in input_df_pandas.columns]
-    input_df = session.create_dataframe(input_df_pandas)
+df = datasets.fetch_california_housing(as_frame=True).frame
+df.columns = [c.upper() for c in df.columns]
 
-    return input_df
+session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
+df = session.create_dataframe(df)
 
-input_df = load_housing_data()
-
-# Use all the columns besides the median value as the features
-input_cols = [c for c in input_df.columns if not c.startswith("MEDHOUSEVAL")]
-# Set the target median value as the only label columns
-label_cols = [c for c in input_df.columns if c.startswith("MEDHOUSEVAL")]
-
-
-DISTRIBUTIONS = dict(
-            max_depth=[80, 90, 100, 110],
-            min_samples_leaf=[1,3,10],
-            min_samples_split=[1.0, 3,10],
-            n_estimators=[100,200,400]
-        )
-estimator = RandomForestRegressor()
-n_folds = 5
-
-clf = GridSearchCV(estimator=estimator, param_grid=DISTRIBUTIONS, cv=n_folds, input_cols=input_cols, label_cols=label_col)
-clf.fit(input_df)
+model = GridSearchCV(
+    estimator=RandomForestRegressor(), 
+    param_grid=dict(
+        max_depth=[80, 90, 100, 110],
+        min_samples_leaf=[1, 3, 10],
+        min_samples_split=[1.0, 3,10],
+        n_estimators=[100, 200, 400]),
+    cv=5, 
+    input_cols=[c for c in df.columns if not c.startswith("MEDHOUSEVAL")], 
+    label_cols=[c for c in df.columns if c.startswith("MEDHOUSEVAL")])
+model.fit(df)
