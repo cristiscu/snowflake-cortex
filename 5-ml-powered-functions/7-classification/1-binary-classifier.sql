@@ -16,6 +16,5 @@ CREATE OR REPLACE SNOWFLAKE.ML.CLASSIFICATION model_binary(
 SELECT model_binary!PREDICT(INPUT_DATA => object_construct(*))
     as prediction from prediction_purchase_data;
 
-SELECT *, model_binary!PREDICT(
-    INPUT_DATA => object_construct(*))
+SELECT *, model_binary!PREDICT(INPUT_DATA => object_construct(*))
     as predictions from prediction_purchase_data;

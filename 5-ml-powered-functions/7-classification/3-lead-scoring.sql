@@ -30,7 +30,8 @@ set total_order_value=round((case when uniform(1,3,random(9))=1 then 0
     else abs(normal(15, 5, random(10)))+
         case when marital_status='Married' then normal(5, 2, random(11)) else 0 end +
         case when household_size>2 then normal(5, 2, random(11)) else 0 end +
-        case when household_income in ('$50,000 to $74,999', '$75,000 to $99,999', 'Over $100,000') then normal(5, 2, random(11)) else 0 end
+        case when household_income in ('$50,000 to $74,999', '$75,000 to $99,999', 'Over $100,000')
+            then normal(5, 2, random(11)) else 0 end
     end), 2)
 where join_date<'2024-02-11'::date;
 
@@ -40,7 +41,8 @@ set total_order_value=round((case when uniform(1,3,random(9))<3 then 0
     else abs(normal(10, 3, random(10)))+
         case when marital_status='Married' then normal(5, 2, random(11)) else 0 end +
         case when household_size>2 then normal(5, 2, random(11)) else 0 end +
-        case when household_income in ('$50,000 to $74,999', '$75,000 to $99,999', 'Over $100,000') then normal(5, 2, random(11)) else 0 end
+        case when household_income in ('$50,000 to $74,999', '$75,000 to $99,999', 'Over $100,000')
+            then normal(5, 2, random(11)) else 0 end
     end), 2)
 where join_date>='2024-02-11'::date;
 
@@ -49,7 +51,8 @@ select * from customers;
 -- =====================================================================
 -- create a view to train the model
 create or replace view customer_training
-as select age_band, household_income, marital_status, household_size, case when total_order_value<10 then 'BRONZE'
+as select age_band, household_income, marital_status, household_size,
+    case when total_order_value<10 then 'BRONZE'
     when total_order_value<=25 and total_order_value>10 then 'SILVER'
     else 'GOLD' END as segment
 from customers
@@ -60,14 +63,14 @@ select * from customer_training;
 -- create the classification model
 CREATE OR REPLACE SNOWFLAKE.ML.CLASSIFICATION customer_classification_model(
     INPUT_DATA => SYSTEM$REFERENCE('view', 'customer_training'),
-    TARGET_COLNAME => 'segment'
-);
+    TARGET_COLNAME => 'segment');
 
 SHOW SNOWFLAKE.ML.CLASSIFICATION;
 
 -- run prediction and save results
 CREATE OR REPLACE TABLE customer_predictions AS
-SELECT email, customer_classification_model!PREDICT(INPUT_DATA => object_construct(*)) as predictions
+SELECT email, customer_classification_model!PREDICT(
+    INPUT_DATA => object_construct(*)) as predictions
 from customers;
 
 SELECT * FROM customer_predictions;
@@ -76,12 +79,12 @@ SELECT * FROM customer_predictions;
 -- new customers likely to be gold
 select c.email
 from customers c
- inner join customer_predictions p on c.email=p.email
+    inner join customer_predictions p on c.email=p.email
 where c.join_date>='2024-02-11'::date and predictions:class='GOLD';
 
 -- old customers who are not gold but should be
 select c.email
 from customers c
- inner join customer_predictions p on c.email=p.email
+    inner join customer_predictions p on c.email=p.email
 where c.join_date<'2024-02-11'::date and predictions:class='GOLD'
- and c.total_order_value<=25;
+    and c.total_order_value<=25;

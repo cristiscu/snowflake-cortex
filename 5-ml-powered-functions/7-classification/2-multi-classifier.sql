@@ -24,9 +24,9 @@ CREATE OR REPLACE TABLE my_predictions AS
 SELECT * FROM my_predictions;
 
 SELECT predictions:class AS predicted_class,
-    ROUND(predictions:probability:not_interested,4) AS not_interested_class_probability,
-    ROUND(predictions['probability']['purchase'],4) AS purchase_class_probability,
-    ROUND(predictions['probability']['add_to_wishlist'],4) AS add_to_wishlist_class_probability
+    ROUND(predictions:probability:not_interested, 4) AS not_interested_class_probability,
+    ROUND(predictions['probability']['purchase'], 4) AS purchase_class_probability,
+    ROUND(predictions['probability']['add_to_wishlist'], 4) AS add_to_wishlist_class_probability
 FROM my_predictions
 LIMIT 5;
 
