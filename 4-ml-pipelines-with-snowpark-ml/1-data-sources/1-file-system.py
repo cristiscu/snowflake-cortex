@@ -4,11 +4,13 @@
 import gzip, fsspec
 from snowflake.ml.fileset import sfcfs
 import pyarrow.parquet as pq
+
+# connect to Snowflake
 from snowflake.ml.utils.connection_params import SnowflakeLoginOptions
 from snowflake.snowpark import Session
+session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
 
 # list files in local cache stage
-session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
 fs1 = fsspec.filesystem("cached",
     target_protocol="sfc",
     target_options={

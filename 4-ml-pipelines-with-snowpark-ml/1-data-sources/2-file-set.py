@@ -1,9 +1,10 @@
 # see https://docs.snowflake.com/en/developer-guide/snowpark-ml/snowpark-ml-filesystem-fileset#creating-and-using-a-fileset
 
 import snowflake.ml.fileset as fileset
+
+# connect to Snowflake
 from snowflake.snowpark import Session
 from snowflake.ml.utils.connection_params import SnowflakeLoginOptions
-
 session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
 
 # create fileset from dataframe

@@ -2,12 +2,14 @@
 # see https://docs.snowflake.com/en/developer-guide/snowpark-ml/snowpark-ml-framework-connectors#feeding-a-fileset-to-tensorflow
 
 import snowflake.ml.fileset as fileset
-from snowflake.snowpark import Session
-from snowflake.ml.utils.connection_params import SnowflakeLoginOptions
 import tensorflow as tf
 
-# create fileset from running a query
+# connect to Snowflake
+from snowflake.snowpark import Session
+from snowflake.ml.utils.connection_params import SnowflakeLoginOptions
 session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
+
+# create fileset from running a query
 fileset1 = fileset.FileSet.make(
     target_stage_loc="@ML_DATASETS.public.my_models/",
     name="from_connector",
