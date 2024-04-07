@@ -18,10 +18,10 @@ fs1 = fsspec.filesystem("cached",
         "cache_types": "bytes",
         "block_size": 32 * 2**20 },
     cache_storage="/tmp/sf_files/")
-print(*fs1.ls("@ML_DATASETS.public.my_models/sales_predict/"), end='\n')
+print(*fs1.ls("@TEST.public.INT_STAGE/sales_predict/"), end='\n')
 
 # show compressed stage file contents
-path = "sfc://@ML_DATASETS.public.my_models/dataset.csv.gz"
+path = "sfc://@TEST.public.INT_STAGE/dataset.csv.gz"
 with fs1.open(path, mode='rb', snowpark_session=session) as f:
     g = gzip.GzipFile(fileobj=f)
     for i in range(3):
@@ -30,7 +30,7 @@ with fs1.open(path, mode='rb', snowpark_session=session) as f:
 # ==========================================================================
 # show stage file contents
 fs2 = sfcfs.SFFileSystem(snowpark_session=session)
-path = '@ML_DATASETS.public.my_models/test/data_7_7_3.snappy.parquet'
+path = '@TEST.public.INT_STAGE/test/data_7_7_3.snappy.parquet'
 with fs2.open(path, mode='rb') as f:
     print(f.read(16))
 

@@ -10,7 +10,7 @@ session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
 # create fileset from dataframe
 df = session.table('mydata').limit(5000000)
 fileset1 = fileset.FileSet.make(
-    target_stage_loc="@ML_DATASETS.public.my_models/",
+    target_stage_loc="@TEST.public.INT_STAGE/",
     name="from_dataframe",
     snowpark_dataframe=df,
     shuffle=True)
@@ -18,7 +18,7 @@ print(*fileset1.files())
 
 # create fileset from running a query
 fileset2 = fileset.FileSet.make(
-    target_stage_loc="@ML_DATASETS.public.my_models/",
+    target_stage_loc="@TEST.public.INT_STAGE/",
     name="from_connector",
     snowpark_session=session,
     query="SELECT * FROM MYDATA LIMIT 5000000",
