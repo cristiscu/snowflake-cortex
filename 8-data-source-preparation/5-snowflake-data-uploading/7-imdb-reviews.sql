@@ -1,3 +1,4 @@
+-- IMDB reviews for sentiment analysis
 -- inspired from https://quickstarts.snowflake.com/guide/end_to_end_nlp_and_ml_using_snowpark_python_and_streamlit:_sentiments_analysis/index.html#0
 -- run from a terminal in VSCode: SNOWSQL -c test_conn -f 1-setup.sql
 CREATE OR REPLACE DATABASE IMDB;
