@@ -1,3 +1,4 @@
+-- run interactively one by one in VSCode or Snowsight
 USE SCHEMA IMDB.PUBLIC;
 
 CREATE OR REPLACE VIEW VIEW_TEST_DATASET AS
