@@ -15,9 +15,14 @@ select REVIEW, SENTIMENT, SENTIMENT_FLAG,
 from VIEW_TEST_DATASET
 limit 10;
 
+select REVIEW, SENTIMENT, SENTIMENT_FLAG,
+    predict_review_batch(REVIEW) as PREDICTED_REVIEW
+from VIEW_TEST_DATASET
+limit 10;
+
 create or replace table REVIEW_PREDICTION as
     select REVIEW, SENTIMENT, SENTIMENT_FLAG,
-        predict_review(ARRAY_CONSTRUCT(REVIEW, SENTIMENT_FLAG)) as PREDICTED_REVIEW
+        predict_review_batch(REVIEW) as PREDICTED_REVIEW
     from VIEW_TEST_DATASET;
 
 SELECT *
