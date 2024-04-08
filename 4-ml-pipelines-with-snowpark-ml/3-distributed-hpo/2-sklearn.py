@@ -13,12 +13,13 @@ X, y = df.iloc[:, 0:-1], df.iloc[:, -1]
 # 7+ mins on so_medium / 3 mins on so_xlarge / 2.5 mins on so_2xlarge
 start_time = time.time()
 
+# 4 x 3 x 3 x 3 x 5 (cv) = 540 combinations
 pipe = GridSearchCV(
     estimator=RandomForestRegressor(),
     param_grid=dict(
         max_depth=[80, 90, 100, 110],
         min_samples_leaf=[1, 3, 10],
-        min_samples_split=[1.0, 3,10],
+        min_samples_split=[1.0, 3, 10],
         n_estimators=[100, 200, 400]),
     cv=5)
 pipe.fit(X, y)

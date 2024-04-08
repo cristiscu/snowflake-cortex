@@ -17,12 +17,13 @@ start_time = time.time()
 
 # PUT file://C:/Users/crist/AppData/Local/Temp/... @SNOWPARK_TEMP_STAGE_...
 #   parallel=4 source_compression='AUTO_DETECT' auto_compress=False overwrite=True
+# 4 x 3 x 3 x 3 x 5 (cv) = 540 combinations
 pipe = GridSearchCV(
     estimator=RandomForestRegressor(),
     param_grid=dict(
         max_depth=[80, 90, 100, 110],
         min_samples_leaf=[1, 3, 10],
-        min_samples_split=[1.0, 3,10],
+        min_samples_split=[1.0, 3, 10],
         n_estimators=[100, 200, 400]),
     cv=5, 
     input_cols=[c for c in df.columns if not c.startswith("MEDHOUSEVAL")], 
