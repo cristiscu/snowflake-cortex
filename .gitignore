@@ -4,9 +4,9 @@ venv/
 
 *.log
 *.exe
+*.zip
 *.spec
 *.conf
-*.zip
 *.pkl
 
 **/lib/
