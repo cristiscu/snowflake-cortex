@@ -1,4 +1,4 @@
--- account budget (built-in instance!)
+-- account budget (built-in instance!) - not in trial account!
 CALL SNOWFLAKE.LOCAL.account_root_budget!ACTIVATE();
 CALL SNOWFLAKE.LOCAL.account_root_budget!SET_SPENDING_LIMIT(1000);
 
@@ -17,6 +17,8 @@ USE SCHEMA budgets_db.budgets_schema;
 CREATE SNOWFLAKE.CORE.BUDGET my_budget();
 
 CALL my_budget!SET_SPENDING_LIMIT(500);
-CALL my_budget!SET_EMAIL_NOTIFICATIONS('budgets_ni', 'costadmin@example.com');
+CALL my_budget!SET_EMAIL_NOTIFICATIONS(
+   'budgets_ni', 'costadmin@example.com');
+   
 CALL my_budget!ADD_RESOURCE(
    SYSTEM$REFERENCE('TABLE', 't1', 'SESSION', 'applybudget'));
