@@ -14,7 +14,7 @@ CREATE OR REPLACE SNOWFLAKE.ML.CLASSIFICATION clf_multiclass(
 SHOW snowflake.ml.classification;
 
 SELECT interest, rating, clf_multiclass!PREDICT(
-    INPUT_DATA => object_construct(*)) as predictions
+    INPUT_DATA => object_construct(*)) as preds
 FROM purchases
 WHERE class IS NULL;
 

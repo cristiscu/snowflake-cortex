@@ -1,6 +1,8 @@
 -- see https://quickstarts.snowflake.com/guide/cortex_ml_classification/index.html?index=..%2F..index#0
 use schema test.public;
 
+SELECT * FROM marketing;
+
 SELECT y, COUNT(1)
 FROM marketing
 GROUP BY 1;
@@ -20,6 +22,7 @@ CREATE OR REPLACE VIEW marketing_infer AS (
   SELECT * EXCLUDE grp
   FROM marketing_view 
   WHERE grp = 'infer');
+SELECT count(*) FROM marketing_infer;
 
 -- USE WAREHOUSE ...
 CREATE OR REPLACE snowflake.ml.classification bank_clf(
