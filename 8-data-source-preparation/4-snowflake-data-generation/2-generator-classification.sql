@@ -21,6 +21,7 @@ CREATE OR REPLACE TABLE purchases AS (
         UNIFORM(7, 10, RANDOM()) AS rating,
         TRUE as label,
         'purchase' AS class
+    FROM TABLE(GENERATOR(rowCount => 100))
     UNION ALL
     SELECT
         CAST(UNIFORM(0, 4, RANDOM()) AS VARCHAR) AS interest,
