@@ -9,12 +9,14 @@ create or replace table call_center(
     duration number);
 
 insert into call_center values
+    -- control group
     ('2023-03-15 00:00:00.000', 'Canada', 'Manager', 'iPhone15', 4926, FALSE, 615),
     ('2023-02-12 00:00:00.000', 'India', 'Specialist1', 'iPhone14', 647, FALSE, 465),
     ('2023-01-11 00:00:00.000', 'Canada', 'Front1', 'MacBookPro', 1519, FALSE, 274),
     ('2023-01-05 00:00:00.000', 'India', 'Front1', 'iPhone13', 4584, FALSE, 1034),
     ('2023-02-01 00:00:00.000', 'Canada', 'Front3', 'iPhone12', 429, FALSE, 476),
     ('2023-03-15 00:00:00.000', 'Canada', 'Manager', 'iPhone15', 4926, FALSE, 615),
+    -- test group
     ('2023-02-12 00:00:00.000', 'India', 'Specialist1', 'iPhone14', 647, TRUE, 465),
     ('2023-01-11 00:00:00.000', 'Canada', 'Front1', 'MacBookPro', 119, TRUE, 274),
     ('2023-01-05 00:00:00.000', 'India', 'Front1', 'iPhone13', 4584, TRUE, 1034),
@@ -23,9 +25,6 @@ insert into call_center values
 select * from call_center
 order by ts;
     
-create or replace table escalated_analysis_results as (
-
-
 WITH cte AS (
   SELECT
     {
@@ -73,12 +72,12 @@ analysis AS (
         TABLE(SNOWFLAKE.ML.TOP_INSIGHTS(cat_dims, cont_dims, metric, label)
         OVER (PARTITION BY 0)) res)
 SELECT contributor,
-    metric_test AS actual,
     TRUNC(expected_metric_test) AS expected,
+    metric_test AS actual,
     TRUNC(relative_change * 100) || '%' AS ratio
 FROM analysis
 WHERE ABS(relative_change - 1) > 0.4
     AND NOT ARRAY_TO_STRING(contributor, ',') LIKE '%not%'
-ORDER BY actual DESC
+ORDER BY relative_change DESC
 LIMIT 10;
 

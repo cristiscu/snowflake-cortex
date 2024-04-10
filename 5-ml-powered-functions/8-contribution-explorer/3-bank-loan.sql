@@ -1,10 +1,11 @@
 -- see https://cristian-70480.medium.com/why-snowflakes-top-insights-is-not-related-to-time-series-2d954c9f67ae
 -- see https://medium.com/snowflake/identify-key-contributors-to-trends-and-anomalies-in-minutes-with-cortex-ml-function-0745cd981e39
 -- see https://archive.ics.uci.edu/dataset/222/bank+marketing
+use schema test.public;
+
 WITH source AS (
-    SELECT *
-    FROM TEST.PUBLIC.MARKETING),
-input AS (
+    SELECT * FROM MARKETING
+), input AS (
     SELECT
         {
             'job': job,
@@ -24,15 +25,16 @@ analysis AS (
         TABLE(SNOWFLAKE.ML.TOP_INSIGHTS(cat_dims, cont_dims, metric, label)
         OVER (PARTITION BY 0)) res)
 SELECT contributor,
-    metric_test AS actual,
     TRUNC(expected_metric_test) AS expected,
+    metric_test AS actual,
     TRUNC(relative_change * 100) || '%' AS ratio
 FROM analysis
 WHERE ABS(relative_change - 1) > 0.4
     AND NOT ARRAY_TO_STRING(contributor, ',') LIKE '%not%'
-ORDER BY actual DESC
+ORDER BY relative_change DESC
 LIMIT 10;
 
+-- separate just 5+2 rows
 WITH source AS (
     (SELECT job, marital, age, y
     FROM TEST.PUBLIC.MARKETING
@@ -65,11 +67,11 @@ analysis AS (
         TABLE(SNOWFLAKE.ML.TOP_INSIGHTS(cat_dims, cont_dims, metric, label)
         OVER (PARTITION BY 0)) res)
 SELECT contributor,
-    metric_test AS actual,
     TRUNC(expected_metric_test) AS expected,
+    metric_test AS actual,
     TRUNC(relative_change * 100) || '%' AS ratio
 FROM analysis
 WHERE ABS(relative_change - 1) > 0.4
     AND NOT ARRAY_TO_STRING(contributor, ',') LIKE '%not%'
-ORDER BY actual DESC
+ORDER BY relative_change DESC
 LIMIT 10;
