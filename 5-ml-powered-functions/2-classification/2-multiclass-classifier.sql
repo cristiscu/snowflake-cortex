@@ -23,7 +23,7 @@ WITH cte AS (
         INPUT_DATA => object_construct(*)) as preds
     FROM purchases
     WHERE class IS NULL)
-SELECT preds:class AS pred_class,
+SELECT preds:class::string AS pred_class,
     ROUND(preds:probability:not_interested, 4) AS not_interested_proba,
     ROUND(preds['probability']['purchase'], 4) AS purchase_proba,
     ROUND(preds['probability']['add_to_wishlist'], 4) AS add_to_wishlist_proba
