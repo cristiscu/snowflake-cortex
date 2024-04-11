@@ -1,0 +1,38 @@
+-- IMDB reviews for sentiment analysis
+-- inspired from https://quickstarts.snowflake.com/guide/end_to_end_nlp_and_ml_using_snowpark_python_and_streamlit:_sentiments_analysis/index.html#0
+-- run from a terminal in VSCode: SNOWSQL -c test_conn -f 1-setup.sql
+CREATE OR REPLACE DATABASE IMDB;
+USE SCHEMA IMDB.PUBLIC;
+
+CREATE FILE FORMAT CSV_COMMA_DELIMITER
+    COMPRESSION = 'AUTO'
+    FIELD_DELIMITER = ','
+    RECORD_DELIMITER = '\n'
+    SKIP_HEADER = 1 
+    FIELD_OPTIONALLY_ENCLOSED_BY = '\042' 
+    TRIM_SPACE = FALSE 
+    ERROR_ON_COLUMN_COUNT_MISMATCH = TRUE 
+    ESCAPE = 'NONE' 
+    ESCAPE_UNENCLOSED_FIELD = '\134' 
+    DATE_FORMAT = 'AUTO' 
+    TIMESTAMP_FORMAT = 'AUTO' 
+    NULL_IF = ('\\N');
+
+CREATE STAGE FILES;
+CREATE STAGE MODELS;
+
+PUT file://..\..\.spool\imdb_train.csv.gz @FILES OVERWRITE=true AUTO_COMPRESS=false;
+PUT file://..\..\.spool\imdb_test.csv.gz @FILES OVERWRITE=true AUTO_COMPRESS=false;
+
+CREATE TABLE TRAIN_DATASET (REVIEW STRING, SENTIMENT STRING);
+CREATE TABLE TEST_DATASET (REVIEW STRING, SENTIMENT STRING);
+
+COPY INTO TRAIN_DATASET FROM @FILES/imdb_train.csv.gz
+	FILE_FORMAT = (FORMAT_NAME=CSV_COMMA_DELIMITER);
+COPY INTO TEST_DATASET FROM @FILES/imdb_test.csv.gz
+	FILE_FORMAT = (FORMAT_NAME=CSV_COMMA_DELIMITER);
+
+REMOVE @FILES;
+
+SELECT * FROM TRAIN_DATASET LIMIT 3;
+SELECT * FROM TRAIN_DATASET WHERE SENTIMENT IS NULL;

@@ -3,7 +3,7 @@
 import os, tarfile, urllib.request
 
 REMOTE = "https://raw.githubusercontent.com/ageron/handson-ml2/master/datasets/housing"
-LOCAL = "../../.spool/datasets"
+LOCAL = "../../.spool"
 
 # download remote TAR file
 urllib.request.urlretrieve(f"{REMOTE}/housing.tgz", f"{LOCAL}/housing.tgz")

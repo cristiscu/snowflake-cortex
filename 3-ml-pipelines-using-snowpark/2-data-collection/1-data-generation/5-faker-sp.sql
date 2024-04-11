@@ -19,4 +19,4 @@ def main(session: snowpark.Session, r: int):
   df.show()
   return df';
 
-call gen_fake_rows();
+call gen_fake_rows(2000);
