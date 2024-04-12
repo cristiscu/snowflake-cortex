@@ -2,13 +2,14 @@ SELECT SNOWFLAKE.CORTEX.COMPLETE(
    'mistral-large', 'What are large language models?');
 
 SELECT SNOWFLAKE.CORTEX.COMPLETE(
-   'mistral-large', CONCAT('Critique this review in bullet points: <review>', content, '</review>'))
-FROM reviews LIMIT 10;
+   'mistral-large', CONCAT('Critique this review in bullet points: <review>', review, '</review>'))
+FROM imdb.public.train_dataset
+LIMIT 10;
 
-SELECT SNOWFLAKE.CORTEX.COMPLETE('llama2-7b-chat',
+SELECT SNOWFLAKE.CORTEX.COMPLETE('llama2-70b-chat',
    [{
       'role': 'user',
-      'content': 'how does a snowflake get its unique pattern?'
+      'content': 'What are exploding joins in Snowflake?'
    }], {
       'temperature': 0.7,
       'max_tokens': 10
