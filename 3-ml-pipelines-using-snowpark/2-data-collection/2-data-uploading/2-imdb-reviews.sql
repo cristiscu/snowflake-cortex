@@ -21,8 +21,8 @@ CREATE FILE FORMAT CSV_COMMA_DELIMITER
 CREATE STAGE FILES;
 CREATE STAGE MODELS;
 
-PUT file://..\..\.spool\imdb_train.csv.gz @FILES OVERWRITE=true AUTO_COMPRESS=false;
-PUT file://..\..\.spool\imdb_test.csv.gz @FILES OVERWRITE=true AUTO_COMPRESS=false;
+PUT file://..\..\..\.spool\imdb_train.csv.gz @FILES OVERWRITE=true AUTO_COMPRESS=false;
+PUT file://..\..\..\.spool\imdb_test.csv.gz @FILES OVERWRITE=true AUTO_COMPRESS=false;
 
 CREATE TABLE TRAIN_DATASET (REVIEW STRING, SENTIMENT STRING);
 CREATE TABLE TEST_DATASET (REVIEW STRING, SENTIMENT STRING);

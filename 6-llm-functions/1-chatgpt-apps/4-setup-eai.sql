@@ -9,6 +9,7 @@ CREATE OR REPLACE NETWORK RULE openai_nr
    MODE = EGRESS
    VALUE_LIST = ('api.openai.com');
 
+-- not for trial accounts!
 CREATE OR REPLACE EXTERNAL ACCESS INTEGRATION openai_eai 
    ALLOWED_NETWORK_RULES = (openai_nr)
    ALLOWED_AUTHENTICATION_SECRETS = (openai_key) 
@@ -31,9 +32,18 @@ def handler(prompt):
     r = requests.post(
         "https://api.openai.com/v1/chat/completions",
         headers={'Authorization': f'Bearer {key}'},
-        json={"model": "gpt-4-1106-preview",
+        json={"model": "gpt-4-turbo-2024-04-09",
               "messages": [{"role": "user", "content": prompt}],
               "temperature": 0.7}
     ).json()
     return r["choices"][0]["message"]["content"]
 $$;
+
+select 'Chile' as country,
+    openai('President of ' || country) as answer;
+
+select
+   n_name as country,
+   openai('Continent of ' || n_name || ' as one single word and nothing else') as continent
+from snowflake_sample_data.tpch_sf1.nation
+limit 5;

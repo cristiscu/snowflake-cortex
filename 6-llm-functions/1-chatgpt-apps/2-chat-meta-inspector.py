@@ -27,7 +27,7 @@ if prompt := st.chat_input(placeholder="Ask a question about Snowflake metadata"
 if not first and st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         r = client.chat.completions.create(
-        model="gpt-4-1106-preview",
+        model="gpt-4-turbo-2024-04-09",
         messages=([{"role": m["role"], "content": m["content"]}
             for m in st.session_state.messages]))
         response = r.choices[0].message.content
