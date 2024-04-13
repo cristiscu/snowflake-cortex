@@ -2,6 +2,7 @@
 -- see https://docs.snowflake.com/en/user-guide/ml-powered-anomaly-detection
 USE SCHEMA test.ts;
 
+// ===================================================
 -- re-train model every hour
 CREATE OR REPLACE TASK retrain_model
   WAREHOUSE = compute_wh
@@ -16,6 +17,7 @@ BEGIN
 END;
 ALTER TASK retrain_model RESUME;
 
+// ===================================================
 CREATE OR REPLACE TABLE anomaly_result (
   ts TIMESTAMP_NTZ, y FLOAT, forecast FLOAT,
   lower_bound FLOAT, upper_bound FLOAT,
@@ -39,6 +41,7 @@ BEGIN
 END;
 ALTER TASK detect_anomalies RESUME;
 
+// ===================================================
 -- send email when anomalies (check every minute)
 CREATE OR REPLACE ALERT sample_sales_alert
   WAREHOUSE = compute_wh
