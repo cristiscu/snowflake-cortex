@@ -4,6 +4,10 @@
 # What about the hierarchical data viewer in the same course?
 # When was the French revolution?
 
+import asyncio
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
+
 import os
 import streamlit as st
 from llama_index.llms.openai import OpenAI

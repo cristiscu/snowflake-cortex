@@ -3,6 +3,8 @@ jupyter
 streamlit
 openai
 llama-index
+llama-index-llms-openai
+pypdf
 langchain
 langchain-community
 langchain-openai
@@ -11,4 +13,3 @@ faker
 plotly
 seaborn
 pandas-profiling
-pypdf
