@@ -6,10 +6,10 @@ from snowflake.ml.modeling.xgboost import XGBClassifier
 session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
 session.query_tag = "classification-sp"
 df = session.table("CLASSIFICATION_DATASET")
-train_data, test_data = df.random_split(weights=[0.9, 0.1], seed=0)
+train_data, _ = df.random_split(weights=[0.9, 0.1], seed=0)
 
 # ========================================================================
-# 44 sec for 1M, ~3 min for 10M
+# 71 sec for 1M, ~3 min for 10M
 start_time = time.time()
 # PUT 'file:///tmp/placeholder/udf_py_1651180125.zip'
 # '@"TEST"."PUBLIC".SNOWPARK_TEMP_STAGE_XLYWDRNLHS/SNOWPARK_TEMP_FUNCTION_DZY8GOQZWH'

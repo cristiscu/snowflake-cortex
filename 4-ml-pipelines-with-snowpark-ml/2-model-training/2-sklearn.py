@@ -11,10 +11,10 @@ session.query_tag = "classification"
 df = session.table("CLASSIFICATION_DATASET").to_pandas()
 X = pd.DataFrame(df, columns=["X1", "X2", "X3", "X4", "X5", "X6"])
 y = pd.DataFrame(df, columns=["Y"])
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
+X_train, _, y_train, _ = train_test_split(X, y, test_size=0.1)
 
 # ========================================================================
-# 73 secs for 1M --> [1 1 0 ... 1 0 1]
+# 3 mins for 1M (X-Small) --> [1 1 0 ... 1 0 1]
 start_time = time.time()
 
 clf = XGBClassifier()
