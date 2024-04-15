@@ -19,21 +19,21 @@ clf.fit(train_data)
 # ========================================================================
 # Training accuracy: 0.98388
 train_data_pred = clf.predict(train_data)
+train_data_pred[["PREDICTIONS"]].show()
 training_accuracy = metrics.accuracy_score(
     df=train_data_pred, 
     y_true_col_names=["Y"], 
     y_pred_col_names=["PREDICTIONS"])
 print(f"Training accuracy: {training_accuracy}")
-train_data_pred[["PREDICTIONS"]].show()
 
 # Eval accuracy: 0.947878
 test_data_pred = clf.predict(test_data)
+test_data_pred[["PREDICTIONS"]].show()
 eval_accuracy = metrics.accuracy_score(
     df=test_data_pred, 
     y_true_col_names=["Y"], 
     y_pred_col_names=["PREDICTIONS"])
 print(f"Eval accuracy: {eval_accuracy}")
-test_data_pred[["PREDICTIONS"]].show()
 
 """
 SELECT avg(iff(("Y" = "PREDICTIONS"), 1, 0))
