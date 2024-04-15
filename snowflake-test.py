@@ -16,10 +16,26 @@ for row in cur:
     print(f'{str(row[0])}={str(row[1])}')
 
 # =======================================================================
+# Snowpark version
+from snowflake.snowpark.version import VERSION
+ver = VERSION
+print(f'Snowpark for Python version: {ver[0]}.{ver[1]}.{ver[2]}')
+
+# =======================================================================
 # connect to your Snowflake account with Snowpark
 from snowflake.snowpark import Session
 from snowflake.ml.utils.connection_params import SnowflakeLoginOptions
+
 session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
+session.sql_simplifier_enabled = True
+print(f'Role: {session.get_current_role()}')
+print(f'Database: {session.get_current_database()}')
+print(f'Schema: {session.get_current_schema()}')
+print(f'Warehouse: {session.get_current_warehouse()}')
+
+res = session.sql('SELECT current_user(), current_version()').collect()
+print(f'User: {res[0][0]}')
+print(f'Snowflake version: {res[0][1]}')
 
 from snowflake.ml.modeling.preprocessing import OneHotEncoder
 help(OneHotEncoder)

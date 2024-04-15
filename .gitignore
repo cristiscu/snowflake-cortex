@@ -8,6 +8,7 @@ venv/
 *.spec
 *.conf
 *.pkl
+*.joblib
 
 **/lib/
 **/__pycache__
