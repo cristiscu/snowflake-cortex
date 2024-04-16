@@ -6,11 +6,10 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import GridSearchCV
 
 session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
+
 df = session.table("CALIFORNIA_HOUSING").to_pandas()
 X, y = df.iloc[:, 0:-1], df.iloc[:, -1]
 
-# ========================================================================
-# 7+ mins on so_medium / 3 mins on so_xlarge / 2.5 mins on so_2xlarge
 start_time = time.time()
 
 # 4 x 3 x 3 x 3 x 5 (cv) = 540 combinations

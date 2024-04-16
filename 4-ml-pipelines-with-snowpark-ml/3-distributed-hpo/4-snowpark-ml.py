@@ -8,7 +8,7 @@ from snowflake.ml.modeling.model_selection.grid_search_cv import GridSearchCV
 pars = SnowflakeLoginOptions("test_conn")
 pars["warehouse"] = "so_2xlarge"
 session = Session.builder.configs(pars).create()
-session.query_tag = "hpo-snowpark"
+session.query_tag = "hpo-snowpark-2"
 df = session.table("CALIFORNIA_HOUSING")
 
 # ========================================================================

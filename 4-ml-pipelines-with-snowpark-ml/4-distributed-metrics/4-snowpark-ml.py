@@ -6,7 +6,7 @@ from snowflake.ml.modeling.xgboost import XGBClassifier
 import snowflake.ml.modeling.metrics as metrics
 
 session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
-#session.query_tag = "classification-sp"
+session.query_tag = "snowpark-ml-metrics"
 df = session.table("CLASSIFICATION_DATASET_FOR_METRICS")
 train_data, test_data = df.random_split(weights=[0.6, 0.4], seed=0)
 
@@ -20,6 +20,7 @@ clf.fit(train_data)
 # Training accuracy: 0.98388
 train_data_pred = clf.predict(train_data)
 train_data_pred[["PREDICTIONS"]].show()
+
 training_accuracy = metrics.accuracy_score(
     df=train_data_pred, 
     y_true_col_names=["Y"], 
@@ -29,6 +30,7 @@ print(f"Training accuracy: {training_accuracy}")
 # Eval accuracy: 0.947878
 test_data_pred = clf.predict(test_data)
 test_data_pred[["PREDICTIONS"]].show()
+
 eval_accuracy = metrics.accuracy_score(
     df=test_data_pred, 
     y_true_col_names=["Y"], 
