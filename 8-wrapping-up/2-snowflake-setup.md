@@ -8,7 +8,7 @@ Use an email address you did not use before. Select the Enterprise Edition, as i
 
 Locate and copy your account name from the **LOCATOR** field, in the *Admin > Accounts* screen:
 
-![Snowflake](./.images/credentials3.png)
+![Snowflake](../.images/credentials3.png)
 
 (3) From VSCode's *Extensions* tab, install the [**Snowflake Extension**](https://docs.snowflake.com/en/user-guide/vscode-ext), which was created by Snowflake.  
 
@@ -46,7 +46,7 @@ password = "..."
 warehouse = "..."
 ```
 
-![secrets.toml](./.images/credentials1.png)
+![secrets.toml](../.images/credentials1.png)
 
 Never publish your TOML files to a remote repository!
 

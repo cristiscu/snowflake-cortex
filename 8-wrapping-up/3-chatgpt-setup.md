@@ -8,7 +8,7 @@ These steps are optional, if you need to experiment with the OpenAI API in your 
 
 Copy and save that key into a **OPENAI_API_KEY** environment variable only you may have access to:
 
-![ChatGPT API Key](./.images/credentials2.png)
+![ChatGPT API Key](../.images/credentials2.png)
 
 You may later connect to OpenAI from Python with:
 
