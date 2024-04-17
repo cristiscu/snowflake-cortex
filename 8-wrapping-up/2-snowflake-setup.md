@@ -59,8 +59,9 @@ This should show help on the *OneHotEncoder* class from Snowpark ML. Exit with C
 To keep it simple, we'll try to use almost everywhere only the following simple Python code snippet, to connect to Snowflake through a Snowpark session:
 
 ```
-# connect to your Snowflake account
 from snowflake.snowpark import Session
 from snowflake.ml.utils.connection_params import SnowflakeLoginOptions
 session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
 ```
+
+Remark that the *SnowflakeLoginOptions* class is in preview at this moment and you may get a warning you can ignore each time you call it.
