@@ -9,6 +9,7 @@ from snowflake.ml.utils.connection_params import SnowflakeLoginOptions
 pars = SnowflakeLoginOptions("test_conn")
 pars["session_parameters"] = { 'QUERY_TAG': 'snowpark_queries' }
 session = Session.builder.configs(pars).create()
+# session.query_tag = 'snowpark_queries'
 #print(session.sql('select current_warehouse(), current_database(), current_schema()').collect())
 
 # Connect to the HOUSING table (but nothing loaded!)

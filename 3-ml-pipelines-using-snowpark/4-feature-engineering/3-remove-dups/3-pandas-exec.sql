@@ -55,5 +55,5 @@ ALTER TABLE "nuqxjlukfw" RENAME TO "LINEITEM_PANDAS";
     /* Python:snowflake.connector.pandas_tools.write_pandas() */
 
 -- render returned Snowpark DataFrame result on screen
-SELECT  *  FROM ("LINEITEM_PANDAS");
+SELECT * FROM ("LINEITEM_PANDAS");
 SELECT * FROM TABLE(RESULT_SCAN('01b361df-0002-45f5-0055-cf07001345be'));

@@ -3,6 +3,7 @@ import snowflake.snowpark as snowpark
 
 def main(session: snowpark.Session):
     df = session.table('SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM')
+    session.query_tag = 'pandas-in-worksheet'
     dfp = df.to_pandas()
     dfp = dfp.drop_duplicates()
     df = session.write_pandas(dfp, "LINEITEM_PANDAS", auto_create_table=True, overwrite=True)

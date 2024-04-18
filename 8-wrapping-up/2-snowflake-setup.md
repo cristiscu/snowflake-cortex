@@ -18,32 +18,34 @@ When configured correctly, you should be able to see and execute SQL statements 
 
 (4) [Install and configure **SnowSQL**](https://docs.snowflake.com/en/user-guide/snowsql-install-config), which is the free command-line tool for Snowflake.  
 
-Add in your *~\.snowsql\config* file a new *"connections.test_conn"* section with your own Snowflake accountname and username, as connection parameters, and other optional parameters (database, schema, warehouse and role):  
+Add in your *~\.snowsql\config* file a new *"connections.test_conn"* section with your own Snowflake connection parameters:  
 
 ```
 [connections.test_conn]
 accountname = ...
 username = ...
+password = ...
 database = test
 schema = public
 warehouse = compute_wh
 role = accountadmin
 ```
 
-Save your Snowflake account password in a *SNOWSQL_PWD* environment variable (always use this name!), that only you can see and have access to.  
-
 With this in place, you will be later able to run SQL scripts (like *my-script-file.sql* here below) from the command line with:  
 
 **`snowsql -c test_conn -f my-script-file.sql`**
 
-(5) If you use Streamlit to connect to Snowflake (with **st.connection** calls) through a TOML file, you may need to create a ".streamlit" subfolder with a **.streamlit/secrets.toml** text file with the following content:
+(5) If you use Streamlit to connect to Snowflake (with **st.connection** calls) through a TOML file, you may need to create a ".streamlit" subfolder with a **.streamlit/secrets.toml** text file with the following section:
 
 ```
-[sf_usage_app]
+[connections.snowflake]
 account = "..."
 user = "..."
 password = "..."
-warehouse = "..."
+database = "test"
+schema = "public"
+warehouse = "compute_wh"
+role = "accountadmin"
 ```
 
 ![secrets.toml](../.images/credentials1.png)
@@ -62,6 +64,18 @@ To keep it simple, we'll try to use almost everywhere only the following simple 
 from snowflake.snowpark import Session
 from snowflake.ml.utils.connection_params import SnowflakeLoginOptions
 session = Session.builder.configs(SnowflakeLoginOptions("test_conn")).create()
+```
+
+To replace some saved connection parameters, you may do something like:
+
+```
+from snowflake.snowpark import Session
+from snowflake.ml.utils.connection_params import SnowflakeLoginOptions
+
+pars = SnowflakeLoginOptions("test_conn")
+pars["schema"] = "diamonds"
+pars["warehouse"] = "large"
+session = Session.builder.configs(pars).create()
 ```
 
 Remark that the *SnowflakeLoginOptions* class is in preview at this moment and you may get a warning you can ignore each time you call it.

@@ -1,15 +1,25 @@
-import os, configparser
-import pandas as pd
-import snowflake.connector
-import queries
+# see https://medium.com/snowflake/how-to-create-a-complex-query-with-snowpark-dataframe-in-python-2d31b9e0961b
 
+import os, configparser
 parser = configparser.ConfigParser()
 parser.read(os.path.join(os.path.expanduser('~'), ".snowsql/config"))
 section = "connections.test_conn"
+
+import snowflake.connector
 conn = snowflake.connector.connect(
     account=parser.get(section, "accountname"),
     user=parser.get(section, "username"),
-    password=parser.get(section, "password"))
+    password=parser.get(section, "password"),
+    database=parser.get(section, "database"),
+    schema=parser.get(section, "schema"))
 
-df = pd.read_sql(queries.target_query, conn)
+query = """
+select dname, sum(sal)
+  from emp join dept on emp.deptno = dept.deptno
+  where dname <> 'RESEARCH'
+  group by dname
+  order by dname;
+"""
+import pandas as pd
+df = pd.read_sql(query, conn)
 print(df)

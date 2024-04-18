@@ -3,6 +3,7 @@ import snowflake.snowpark as snowpark
 
 def main(session: snowpark.Session):
     df = session.table('SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM')
+    session.query_tag = 'snowpark-in-worksheet'
     df = df.dropDuplicates()
     df.write.mode("overwrite").save_as_table("LINEITEM_SNOWPARK")
     return df
