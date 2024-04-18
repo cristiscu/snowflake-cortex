@@ -6,5 +6,5 @@ def main(session: snowpark.Session):
     session.query_tag = 'pandas-in-worksheet'
     dfp = df.to_pandas()
     dfp = dfp.drop_duplicates()
-    df = session.write_pandas(dfp, "LINEITEM_PANDAS", auto_create_table=True, overwrite=True)
+    df = session.write_pandas(dfp, "TEST.PUBLIC.LINEITEM_PANDAS", auto_create_table=True, overwrite=True)
     return df

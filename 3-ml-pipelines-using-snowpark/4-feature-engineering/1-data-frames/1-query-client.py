@@ -1,5 +1,3 @@
-# see https://medium.com/snowflake/how-to-create-a-complex-query-with-snowpark-dataframe-in-python-2d31b9e0961b
-
 import os, configparser
 parser = configparser.ConfigParser()
 parser.read(os.path.join(os.path.expanduser('~'), ".snowsql/config"))
