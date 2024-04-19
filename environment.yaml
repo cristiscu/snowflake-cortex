@@ -1,0 +1,27 @@
+name: test-env
+channels:
+  - conda-forge
+dependencies:
+  # Snowflake-specific
+  - snowflake-snowpark-python[pandas]==1.13.0
+  - snowflake-ml-python==1.3.1
+
+  # to build Streamlit apps
+  - streamlit==1.31.1
+  - plotly==5.9.0
+  - seaborn==0.12.0
+
+  # to connect to ChatGPT
+  - openai==1.9.0
+  - llama-index
+  - llama-index-llms-openai
+  - langchain
+  - langchain-community
+  - langchain-openai
+  - snowflake-sqlalchemy
+
+  # miscellaneous
+  - notebook
+  - pypdf
+  - faker
+  - pandas-profiling

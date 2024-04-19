@@ -24,6 +24,14 @@ A new *venv/* folder was created (and already added to *.gitignore*!). Select th
 
 **`pip install -r requirements.txt`**
 
-You may also want to update pip:
+You may also want to update pip first:
 
 **`python -m pip install --upgrade pip`**
+
+Show all installed versions:
+
+**`python list`**  
+
+Show details for one single installed package (Snowpark):
+
+**`python show snowflake-snowpark-python`**  
