@@ -16,8 +16,13 @@ langchain-community
 langchain-openai
 snowflake-sqlalchemy
 
+# Pandas Profiling
+numba==0.58.1
+ipywidgets
+pandas-profiling
+ydata-profiling
+
 # miscellaneous
 notebook
 pypdf
 faker
-pandas-profiling

@@ -1,4 +1,4 @@
--- run from a terminal in VSCode: SNOWSQL -c test_conn -f 4-inferred-schema.sql
+-- run from a terminal in VSCode: SNOWSQL -c test_conn -f 2-titanic-inferred.sql
 
 CREATE OR REPLACE FILE FORMAT TEST.PUBLIC.CSV_HEADER_PARSE
     TYPE='CSV' PARSE_HEADER=TRUE FIELD_OPTIONALLY_ENCLOSED_BY = '"';
@@ -6,7 +6,7 @@ CREATE OR REPLACE FILE FORMAT TEST.PUBLIC.CSV_HEADER_PARSE
 CREATE OR REPLACE STAGE TEST.PUBLIC.INT_STAGE
     FILE_FORMAT=TEST.PUBLIC.CSV_HEADER_PARSE;
 
-PUT file://..\..\.spool\titanic.csv @TEST.PUBLIC.INT_STAGE
+PUT file://..\..\..\..\.spool\titanic.csv @TEST.PUBLIC.INT_STAGE
     OVERWRITE=true AUTO_COMPRESS=false;
 
 -- (1) INFER_SCHEMA --> show inferred columns in tabular format

@@ -16,7 +16,7 @@ if st.sidebar.button("🗂️ Re-create Stage", use_container_width=True):
 if st.sidebar.button("🗃️ Upload File in Stage", use_container_width=True):
     # this will not work in a Streamlit in Snowflake app!
     session.file.put(
-        "..\..\.spool\\titanic.csv",
+        "..\..\..\..\.spool\\titanic.csv",
         "TEST.PUBLIC.INT_STAGE",
         auto_compress=False, overwrite=True)
     st.write("File titanic.csv uploaded in stage.")

@@ -9,7 +9,7 @@ query = "CREATE OR REPLACE STAGE TEST.PUBLIC.INT_STAGE"
 session.sql(query).collect()
 
 session.file.put(
-    "..\..\.spool\\titanic.csv",
+    "..\..\..\..\.spool\\titanic.csv",
     "TEST.PUBLIC.INT_STAGE",
     auto_compress=False,
     overwrite=True)

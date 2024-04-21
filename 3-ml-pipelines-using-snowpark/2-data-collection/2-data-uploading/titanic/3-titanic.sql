@@ -1,9 +1,9 @@
--- run from a terminal in VSCode: SNOWSQL -c test_conn -f 3-snowsql-script.sql
+-- run from a terminal in VSCode: SNOWSQL -c test_conn -f 3-titanic.sql
 
-CREATE OR REPLACE STAGE TEST.PUBLIC.INT_STAGE;
+-- CREATE OR REPLACE STAGE TEST.PUBLIC.INT_STAGE;
 
 -- not supported from the UI!
-PUT file://..\..\.spool\titanic.csv @TEST.PUBLIC.INT_STAGE
+PUT file://..\..\..\..\.spool\titanic.csv @TEST.PUBLIC.INT_STAGE
     OVERWRITE=true AUTO_COMPRESS=false;
 
 LIST @TEST.PUBLIC.INT_STAGE;
