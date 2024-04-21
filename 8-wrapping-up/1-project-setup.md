@@ -1,5 +1,7 @@
 # Project Setup Instructions
 
+[![Watch Here](../.images/youtube-1.png)](https://www.youtube.com/watch?v=FknW7jc0M24&list=PLWwulQvNh3MUNVsS3MoRcTecByVnX_fm5&index=2&t=5s&pp=gAQBiAQB)
+
 (1) Install and configure [**Visual Studio Code (VSCode)**](https://code.visualstudio.com/), which is a free source-code editor we will use, mostly for SQL and Python code snippets.  
 
 (2) From a *Terminal* window in VSCode, switch to the folder where you keep most of your projects (mine is "C:\Projects"), and clone the current public *GitHub repository*:  

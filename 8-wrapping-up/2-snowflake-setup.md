@@ -1,5 +1,7 @@
 # Snowflake Account Configuration
 
+[![Watch Here](../.images/youtube-1.png)](https://www.youtube.com/watch?v=xcZhmJhuGow&list=PLWwulQvNh3MUNVsS3MoRcTecByVnX_fm5&index=3&pp=gAQBiAQB)
+
 (1) Go to [**signup.snowflake.com**](https://signup.snowflake.com/) and create a free Snowflake trial account. There is no credit card required and no obligation whatsoever. You get US $400 credits to use on a free online Snowflake account for maximum 30 days.
 
 Use an email address you did not use before. Select the Enterprise Edition, as it comes with more features we could try. To try most Public Preview features, select the AWS provider, in a US region close to you (the very new Snowflake features are usually available only on AWS).
