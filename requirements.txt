@@ -22,7 +22,14 @@ ipywidgets
 pandas-profiling
 ydata-profiling
 
+# TensorFlow and PyTorch
+tensorflow
+torch
+torchdata
+torch-utils
+
 # miscellaneous
 notebook
 pypdf
 faker
+openpyxl
