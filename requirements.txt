@@ -33,3 +33,5 @@ notebook
 pypdf
 faker
 openpyxl
+mlflow
+transformers
