@@ -20,13 +20,17 @@ clf = XGBClassifier(
     drop_input_cols=True)
 clf.fit(df)
 
+print("Registering the model...")
 registry = get_registry()
 model_ref = registry.log_model(
     clf,
     model_name="XGBClassifier",
-    version_name="v1",
-    conda_dependencies=["scikit-learn"])
+    version_name="v3",
+    conda_dependencies=["xgboost"])
 
-model_ref.run(
+print("Making a prediction...")
+df = model_ref.run(
     df.drop(columns="TARGET").head(10),
     function_name='predict_proba')
+print(df)
+

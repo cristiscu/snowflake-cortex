@@ -34,11 +34,15 @@ for _epoch in range(100):
     loss.backward()
     optimizer.step()
 
+print("Registering the model...")
 registry = get_registry()
 model_ref = registry.log_model(
     model,
     model_name="torchModel",
     version_name="v1",
+    conda_dependencies=["pytorch", "torch"],
     sample_input_data=[data_x])
 
-model_ref.run([data_x])
+print("Making a prediction...")
+df = model_ref.run([data_x])
+print(df)

@@ -32,11 +32,15 @@ model.compile(
     loss=tf.keras.losses.MeanSquaredError())
 model.fit(data_x, data_y, batch_size=batch_size, epochs=100)
 
+print("Registering the model...")
 registry = get_registry()
 model_ref = registry.log_model(
     model,
     model_name="tfModel",
     version_name="v1",
+    conda_dependencies=["tensorflow"],
     sample_input_data=[data_x])
 
-model_ref.run([data_x])
+print("Making a prediction...")
+df = model_ref.run([data_x])
+print(df)

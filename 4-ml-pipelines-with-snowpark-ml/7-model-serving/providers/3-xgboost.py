@@ -6,5 +6,7 @@ from model_utils import get_model
 cal_X, cal_y = datasets.load_breast_cancer(as_frame=True, return_X_y=True)
 _, cal_X_test, _, _ = model_selection.train_test_split(cal_X, cal_y)
 
+print("Making a prediction...")
 model_ref = get_model("xgBooster")
-model_ref.run(cal_X_test[-10:])
+df = model_ref.run(cal_X_test[-10:])
+print(df)

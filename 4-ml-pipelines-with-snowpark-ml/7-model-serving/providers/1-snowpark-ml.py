@@ -12,7 +12,9 @@ df = pd.DataFrame(
 df.columns = [s.replace(" (CM)", "").replace(" ", "")
     for s in df.columns.str.upper()]
 
+print("Making a prediction...")
 model_ref = get_model("XGBClassifier")
-model_ref.run(
+df = model_ref.run(
     df.drop(columns="TARGET").head(10),
     function_name='predict_proba')
+print(df)

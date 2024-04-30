@@ -10,14 +10,18 @@ regr = xgboost.train(
     dict(n_estimators=100, reg_lambda=1, gamma=0, max_depth=3, objective="binary:logistic"),
     xgboost.DMatrix(data=cal_X_train, label=cal_y_train))
 
+print("Registering the model...")
 registry = get_registry()
 model_ref = registry.log_model(
     regr,
     model_name="xgBooster",
     version_name="v1",
+    conda_dependencies=["scikit-learn", "xgboost"],
     sample_input_data=cal_X_test,
     options={
         "target_methods": ["predict"],
         "method_options": { "predict": {"case_sensitive": True} }})
 
-model_ref.run(cal_X_test[-10:])
+print("Making a prediction...")
+df = model_ref.run(cal_X_test[-10:])
+print(df)

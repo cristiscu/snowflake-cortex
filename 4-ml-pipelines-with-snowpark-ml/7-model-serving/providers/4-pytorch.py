@@ -8,5 +8,7 @@ data_x = (torch
     .from_numpy(np.random.rand(100, 10))
     .to(dtype=torch.float32))
 
+print("Making a prediction...")
 model_ref = get_model("torchModel")
-model_ref.run([data_x])
+df = model_ref.run([data_x])
+print(df)

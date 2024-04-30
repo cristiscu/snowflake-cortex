@@ -9,12 +9,16 @@ finbert_model = transformers.pipeline(
     model="ProsusAI/finbert",
     top_k=2)
 
+print("Registering the model...")
 registry = get_registry()
 model_ref = registry.log_model(
     finbert_model,
     model_name="finbert",
+    conda_dependencies=["tokenizers", "transformers"],
     version_name="v1")
 
-model_ref.run(pd.DataFrame([
+print("Making a prediction...")
+df = model_ref.run(pd.DataFrame([
     ["I have a problem with my Snowflake that needs to be resolved asap!!", ""],
     ["I would like to have udon for today's dinner.", ""]]))
+print(df)

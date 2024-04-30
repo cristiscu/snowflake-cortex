@@ -3,7 +3,9 @@
 import pandas as pd
 from model_utils import get_model
 
+print("Making a prediction...")
 model_ref = get_model("finbert")
-model_ref.run(pd.DataFrame([
+df = model_ref.run(pd.DataFrame([
     ["I have a problem with my Snowflake that needs to be resolved asap!!", ""],
     ["I would like to have udon for today's dinner.", ""]]))
+print(df)

@@ -16,6 +16,7 @@ with mlflow.start_run() as run:
     mlflow.sklearn.log_model(rf, "model", signature=signature)
     run_id = run.info.run_id
 
+print("Registering the model...")
 registry = get_registry()
 model_ref = registry.log_model(
     mlflow.pyfunc.load_model(f"runs:/{run_id}/model"),
@@ -24,4 +25,6 @@ model_ref = registry.log_model(
     conda_dependencies=["mlflow<=2.4.0", "scikit-learn", "scipy"],
     options={"ignore_mlflow_dependencies": True})
 
-model_ref.run(X_test)
+print("Making a prediction...")
+df = model_ref.run(X_test)
+print(df)

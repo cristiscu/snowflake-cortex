@@ -24,6 +24,7 @@ ydata-profiling
 
 # TensorFlow and PyTorch
 tensorflow
+tf-keras
 torch
 torchdata
 torch-utils
