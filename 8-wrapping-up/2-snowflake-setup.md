@@ -14,7 +14,7 @@ Locate and copy your account name from the **LOCATOR** field, in the *Admin > Ac
 
 (3) From VSCode's *Extensions* tab, install the [**Snowflake Extension**](https://docs.snowflake.com/en/user-guide/vscode-ext), which was created by Snowflake.  
 
-Connect to Snowflake with your account name, plus the username and password you created for your ACCOUNTADMIN role.  
+Connect to Snowflake with your account name (or the URL), plus the username and password you created for your ACCOUNTADMIN role.  
 
 When configured correctly, you should be able to see and execute SQL statements directly from SQL files in VSCode, through *Execute* links.
 
@@ -33,9 +33,9 @@ warehouse = compute_wh
 role = accountadmin
 ```
 
-With this in place, you will be later able to run SQL scripts (like *my-script-file.sql* here below) from the command line with:  
+With this in place, you will be later able to run SQL scripts (like *snowsql-test.sql* here below) from the command line with:  
 
-**`snowsql -c test_conn -f my-script-file.sql`**
+**`snowsql -c test_conn -f snowsql-test.sql`**
 
 (5) If you use Streamlit to connect to Snowflake (with **st.connection** calls) through a TOML file, you may need to create a ".streamlit" subfolder with a **.streamlit/secrets.toml** text file with the following section:
 

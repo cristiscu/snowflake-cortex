@@ -9,30 +9,30 @@ seaborn==0.12.0
 
 # to connect to ChatGPT
 openai==1.9.0
-llama-index
-llama-index-llms-openai
-langchain
-langchain-community
-langchain-openai
-snowflake-sqlalchemy
+llama-index==0.10.68
+llama-index-llms-openai==0.1.27
+langchain==0.1.20
+langchain-community==0.0.38
+langchain-openai==0.0.4
+snowflake-sqlalchemy==1.9.0
 
 # Pandas Profiling
 numba==0.58.1
-ipywidgets
-pandas-profiling
-ydata-profiling
+ipywidgets==8.1.8
+pandas-profiling==3.2.0
+# ydata-profiling
 
 # TensorFlow and PyTorch
-tensorflow
+tensorflow==2.19.1
 tf-keras
-torch
+torch==2.10.0
 torchdata
 torch-utils
 
 # miscellaneous
-notebook
-pypdf
-faker
-openpyxl
-mlflow
-transformers
+notebook==7.5.5
+pypdf==4.3.1
+faker==40.11.0
+openpyxl==3.1.5
+mlflow==3.10.1
+transformers==5.3.0
