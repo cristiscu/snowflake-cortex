@@ -1,4 +1,4 @@
--- see https://quickstarts.snowflake.com/guide/ml_forecasting_ad/index.html
+-- see https://www.snowflake.com/en/developers/guides/getting-started-with-snowflake-cortex-ml-forecasting-and-classification/
 USE SCHEMA test.ts;
 
 CREATE OR REPLACE FILE FORMAT csv_ts

@@ -1,4 +1,4 @@
--- see https://quickstarts.snowflake.com/guide/cortex_ml_classification/index.html?index=..%2F..index#0
+-- see https://www.snowflake.com/en/developers/guides/getting-started-with-snowflake-cortex-ml-forecasting-and-classification/
 use schema test.public;
 
 CREATE OR REPLACE VIEW marketing_all AS (
