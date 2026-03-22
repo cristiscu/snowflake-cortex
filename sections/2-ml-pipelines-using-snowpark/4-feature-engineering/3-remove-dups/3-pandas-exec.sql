@@ -1,0 +1,59 @@
+-- from Query History
+SELECT * FROM (SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM);
+
+CREATE TEMP STAGE "SNOWPARK_TEMP_STAGE_IPHQRCJOZJ"
+    /* Python:snowflake.connector.pandas_tools.write_pandas() */
+    FILE_FORMAT=(TYPE=PARQUET COMPRESSION=gzip BINARY_AS_TEXT=FALSE);
+
+CREATE TEMP FILE FORMAT "SNOWPARK_TEMP_FILE_FORMAT_URWQTFJHBC"
+    /* Python:snowflake.connector.pandas_tools.write_pandas() */
+    TYPE=PARQUET COMPRESSION=auto;
+
+SELECT COLUMN_NAME, TYPE
+FROM table(infer_schema(
+    location=>'@"SNOWPARK_TEMP_STAGE_IPHQRCJOZJ"',
+    file_format=>'"SNOWPARK_TEMP_FILE_FORMAT_URWQTFJHBC"'));
+
+CREATE TABLE IF NOT EXISTS "nuqxjlukfw" (
+    "L_ORDERKEY" NUMBER(38, 0),
+    "L_PARTKEY" NUMBER(38, 0),
+    "L_SUPPKEY" NUMBER(38, 0),
+    "L_LINENUMBER" NUMBER(38, 0),
+    "L_QUANTITY" REAL,
+    "L_EXTENDEDPRICE" REAL,
+    "L_DISCOUNT" REAL,
+    "L_TAX" REAL, 
+    "L_RETURNFLAG" TEXT, 
+    "L_LINESTATUS" TEXT, 
+    "L_SHIPDATE" DATE, 
+    "L_COMMITDATE" DATE, 
+    "L_RECEIPTDATE" DATE, 
+    "L_SHIPINSTRUCT" TEXT, 
+    "L_SHIPMODE" TEXT, 
+    "L_COMMENT" TEXT);
+    /* Python:snowflake.connector.pandas_tools.write_pandas() */
+
+COPY INTO "nuqxjlukfw"
+    /* Python:snowflake.connector.pandas_tools.write_pandas() */
+    ("L_ORDERKEY","L_PARTKEY","L_SUPPKEY","L_LINENUMBER","L_QUANTITY",
+    "L_EXTENDEDPRICE","L_DISCOUNT","L_TAX","L_RETURNFLAG","L_LINESTATUS",
+    "L_SHIPDATE","L_COMMITDATE","L_RECEIPTDATE","L_SHIPINSTRUCT","L_SHIPMODE","L_COMMENT")
+FROM (SELECT $1:"L_ORDERKEY"::NUMBER(38, 0),$1:"L_PARTKEY"::NUMBER(38, 0),
+    $1:"L_SUPPKEY"::NUMBER(38, 0),$1:"L_LINENUMBER"::NUMBER(38, 0),
+    $1:"L_QUANTITY"::REAL,$1:"L_EXTENDEDPRICE"::REAL,
+    $1:"L_DISCOUNT"::REAL,$1:"L_TAX"::REAL,$1:"L_RETURNFLAG"::TEXT,
+    $1:"L_LINESTATUS"::TEXT,$1:"L_SHIPDATE"::DATE,
+    $1:"L_COMMITDATE"::DATE,$1:"L_RECEIPTDATE"::DATE,
+    $1:"L_SHIPINSTRUCT"::TEXT,$1:"L_SHIPMODE"::TEXT,
+    $1:"L_COMMENT"::TEXT FROM @"SNOWPARK_TEMP_STAGE_IPHQRCJOZJ")
+FILE_FORMAT=(TYPE=PARQUET COMPRESSION=auto BINARY_AS_TEXT=FALSE);
+
+DROP TABLE IF EXISTS "LINEITEM_PANDAS";
+    /* Python:snowflake.connector.pandas_tools.write_pandas() */
+
+ALTER TABLE "nuqxjlukfw" RENAME TO "LINEITEM_PANDAS";
+    /* Python:snowflake.connector.pandas_tools.write_pandas() */
+
+-- render returned Snowpark DataFrame result on screen
+SELECT * FROM ("LINEITEM_PANDAS");
+SELECT * FROM TABLE(RESULT_SCAN('01b361df-0002-45f5-0055-cf07001345be'));
