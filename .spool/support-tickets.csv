@@ -1,0 +1,201 @@
+ticket_id,customer_name,customer_email,service_type,request,contact_preference
+TKT-10001,John Smith,jsmith@example.com,Technical Support,Unable to login to account,Email
+TKT-10002,Sarah Johnson,sjohnson@example.net,Billing,Question about recent charge,Phone
+TKT-10003,Michael Wong,mwong@example.org,Account Management,Need to update payment method,Email
+TKT-10004,Emily Davis,edavis@example.com,Product Information,Question about product features,Email
+TKT-10005,Robert Chen,rchen@example.net,Technical Support,Software not installing correctly,Phone
+TKT-10006,Jessica Taylor,jtaylor@example.org,Refund Request,Want to return recent purchase,Email
+TKT-10007,David Wilson,dwilson@example.com,Technical Support,Application crashes on startup,Chat
+TKT-10008,Amanda Martinez,amartinez@example.net,Account Management,Need to reset password,Email
+TKT-10009,Thomas Brown,tbrown@example.org,Billing,Disputing incorrect charge,Phone
+TKT-10010,Jennifer Lee,jlee@example.com,Product Information,Need compatibility information,Email
+TKT-10011,Christopher Garcia,cgarcia@example.net,Technical Support,Error message during checkout,Chat
+TKT-10012,Elizabeth Scott,escott@example.org,Refund Request,Product not as described,Email
+TKT-10013,Daniel Kim,dkim@example.com,Account Management,Account locked after failed logins,Phone
+TKT-10014,Michelle Rodriguez,mrodriguez@example.net,Billing,Monthly subscription question,Email
+TKT-10015,James Williams,jwilliams@example.org,Technical Support,Cannot connect to service,Chat
+TKT-10016,Patricia Clark,pclark@example.com,Product Information,Requesting product manual,Email
+TKT-10017,Kevin Johnson,kjohnson@example.net,Account Management,Need to change email address,Email
+TKT-10018,Laura Adams,ladams@example.org,Technical Support,Website displaying errors,Phone
+TKT-10019,Matthew Thompson,mthompson@example.com,Refund Request,Accidental purchase,Email
+TKT-10020,Samantha White,swhite@example.net,Billing,Question about payment plan,Chat
+TKT-10021,Andrew Jackson,ajackson@example.org,Technical Support,Slow performance issues,Email
+TKT-10022,Olivia Martin,omartin@example.com,Product Information,Product comparison request,Phone
+TKT-10023,Richard Harris,rharris@example.net,Account Management,Cannot access subscription,Email
+TKT-10024,Sophia Lewis,slewis@example.org,Technical Support,Mobile app not responding,Chat
+TKT-10025,Joseph Allen,jallen@example.com,Refund Request,Duplicate charge issue,Email
+TKT-10026,Emma Nelson,enelson@example.net,Billing,Invoice correction needed,Phone
+TKT-10027,Charles Wright,cwright@example.org,Technical Support,Configuration problem,Email
+TKT-10028,Rebecca Mitchell,rmitchell@example.com,Product Information,Question about warranty,Chat
+TKT-10029,Brian Turner,bturner@example.net,Account Management,Delete account request,Email
+TKT-10030,Nicole Carter,ncarter@example.org,Technical Support,Missing data in reports,Phone
+TKT-10031,Jonathan Phillips,jphillips@example.com,Refund Request,Refund not received,Email
+TKT-10032,Katherine Evans,kevans@example.net,Billing,Payment method declined,Chat
+TKT-10033,William Parker,wparker@example.org,Account Management,Change subscription plan,Email
+TKT-10034,Stephanie Morris,smorris@example.com,Technical Support,Driver compatibility issue,Phone
+TKT-10035,Edward Reed,ereed@example.net,Product Information,Product availability inquiry,Email
+TKT-10036,Christina Cooper,ccooper@example.org,Billing,Promo code not working,Chat
+TKT-10037,Timothy Rogers,trogers@example.com,Technical Support,Data import failure,Email
+TKT-10038,Rachel Howard,rhoward@example.net,Account Management,Merge duplicate accounts,Phone
+TKT-10039,Jason Butler,jbutler@example.org,Refund Request,Dissatisfied with service,Email
+TKT-10040,Margaret Coleman,mcoleman@example.com,Technical Support,Software update problem,Chat
+TKT-10041,George Simmons,gsimmons@example.net,Billing,Billing address update,Email
+TKT-10042,Victoria Perry,vperry@example.org,Product Information,Installation instructions,Phone
+TKT-10043,Kenneth Barnes,kbarnes@example.com,Account Management,Account security concern,Email
+TKT-10044,Alexandra Fisher,afisher@example.net,Technical Support,Database connection error,Chat
+TKT-10045,Ronald Henderson,rhenderson@example.org,Refund Request,Changed mind about purchase,Email
+TKT-10046,Megan Ross,mross@example.com,Billing,International payment issue,Phone
+TKT-10047,Paul Hughes,phughes@example.net,Technical Support,File conversion problem,Email
+TKT-10048,Cynthia Price,cprice@example.org,Product Information,Product dimensions request,Chat
+TKT-10049,Donald Sanders,dsanders@example.com,Account Management,Update shipping address,Email
+TKT-10050,Angela Long,along@example.net,Technical Support,Audio not working in app,Phone
+TKT-10051,Steven Gray,sgray@example.org,Refund Request,Received wrong item,Email
+TKT-10052,Deborah James,djames@example.com,Billing,Cancel automatic renewal,Chat
+TKT-10053,Mark Bennett,mbennett@example.net,Technical Support,Cannot print documents,Email
+TKT-10054,Lisa Wood,lwood@example.org,Product Information,Material composition question,Phone
+TKT-10055,Joshua Barnes,jbarnes@example.com,Account Management,Upgrade account request,Email
+TKT-10056,Karen Hayes,khayes@example.net,Technical Support,Synchronization issue,Chat
+TKT-10057,Jeffrey Cox,jcox@example.org,Refund Request,Damaged item received,Email
+TKT-10058,Nancy Diaz,ndiaz@example.com,Billing,Missing receipt request,Phone
+TKT-10059,Scott Foster,sfoster@example.net,Technical Support,Browser compatibility issue,Email
+TKT-10060,Helen Ward,hward@example.org,Product Information,Assembly instructions needed,Chat
+TKT-10061,Jerry Alexander,jalexander@example.com,Account Management,Cannot unsubscribe,Email
+TKT-10062,Sandra Russell,srussell@example.net,Technical Support,Settings not saving,Phone
+TKT-10063,Frank Griffin,fgriffin@example.org,Refund Request,Late delivery complaint,Email
+TKT-10064,Carol Wallace,cwallace@example.com,Billing,Extend payment deadline,Chat
+TKT-10065,Raymond Warren,rwarren@example.net,Account Management,Two-factor authentication setup,Email
+TKT-10066,Ruth Sullivan,rsullivan@example.org,Technical Support,Integration with third-party tool,Phone
+TKT-10067,Howard Gordon,hgordon@example.com,Product Information,Product recall inquiry,Email
+TKT-10068,Diane Hunter,dhunter@example.net,Billing,Split payment request,Chat
+TKT-10069,Arthur Owens,aowens@example.org,Technical Support,Network connectivity issues,Email
+TKT-10070,Gloria Hansen,ghansen@example.com,Refund Request,Service outage compensation,Phone
+TKT-10071,Lawrence Jenkins,ljenkins@example.net,Account Management,Account closure process,Email
+TKT-10072,Teresa Peterson,tpeterson@example.org,Technical Support,Data export problem,Chat
+TKT-10073,Eugene Kim,ekim@example.com,Product Information,Looking for user manual,Email
+TKT-10074,Judith Harrison,jharrison@example.net,Billing,Corporate account setup,Phone
+TKT-10075,Victor Powell,vpowell@example.org,Technical Support,Calendar not syncing,Email
+TKT-10076,Julie Patel,jpatel@example.com,Refund Request,Did not authorize purchase,Chat
+TKT-10077,Gerald Hamilton,ghamilton@example.net,Account Management,Recover deleted data,Email
+TKT-10078,Joyce Marshall,jmarshall@example.org,Technical Support,Video playback issues,Phone
+TKT-10079,Peter Gonzalez,pgonzalez@example.com,Billing,Credit card expiration update,Email
+TKT-10080,Ann Hart,ahart@example.net,Product Information,Product maintenance advice,Chat
+TKT-10081,Harold Ellis,hellis@example.org,Technical Support,Unable to upload files,Email
+TKT-10082,Pamela Dixon,pdixon@example.com,Refund Request,Subscription cancellation refund,Phone
+TKT-10083,Carl Franklin,cfranklin@example.net,Account Management,Data privacy concerns,Email
+TKT-10084,Janice Gibson,jgibson@example.org,Technical Support,Form submission error,Chat
+TKT-10085,Wayne Grant,wgrant@example.com,Billing,Missing charges explanation,Email
+TKT-10086,Melissa Knight,mknight@example.net,Product Information,Alternative product suggestion,Phone
+TKT-10087,Ralph Brooks,rbrooks@example.org,Technical Support,Plugin not compatible,Email
+TKT-10088,Cheryl Wagner,cwagner@example.com,Account Management,Update notification preferences,Chat
+TKT-10089,Roy Hudson,rhudson@example.net,Refund Request,Quality not as expected,Email
+TKT-10090,Kathy Pierce,kpierce@example.org,Billing,Tax exemption documentation,Phone
+TKT-10091,Roger Fields,rfields@example.com,Technical Support,Accessibility feature request,Email
+TKT-10092,Martha Snyder,msnyder@example.net,Product Information,Bulk order inquiry,Chat
+TKT-10093,Earl Matthews,ematthews@example.org,Account Management,Request account statement,Email
+TKT-10094,Doris Welch,dwelch@example.com,Technical Support,Offline mode not working,Phone
+TKT-10095,Fred Daniels,fdaniels@example.net,Refund Request,Membership cancellation,Email
+TKT-10096,Jean Carpenter,jcarpenter@example.org,Billing,Dispute unauthorized charge,Chat
+TKT-10097,Louis Lawrence,llawrence@example.com,Technical Support,Screen display issue,Email
+TKT-10098,Lois Chavez,lchavez@example.net,Product Information,Custom order possibility,Phone
+TKT-10099,Kelly Newton,knewton@example.org,Account Management,Lost access to recovery email,Email
+TKT-10100,Bruce Walton,bwalton@example.com,Technical Support,Cannot verify email address,Chat
+TKT-10101,Marilyn Black,mblack@example.net,Refund Request,Promotional offer not honored,Email
+TKT-10102,Alan Webster,awebster@example.org,Billing,Duplicate account charges,Phone
+TKT-10103,Alice Arnold,aarnold@example.com,Technical Support,PDF generation failure,Email
+TKT-10104,Harry Castro,hcastro@example.net,Product Information,Product customization options,Chat
+TKT-10105,Beverly Parks,bparks@example.org,Account Management,Suspicious activity alert,Email
+TKT-10106,Johnny Holland,jholland@example.com,Technical Support,Cloud storage sync issue,Phone
+TKT-10107,Shirley Burton,sburton@example.net,Refund Request,Service doesn't meet needs,Email
+TKT-10108,Walter Oliver,woliver@example.org,Billing,Payment plan adjustment,Chat
+TKT-10109,Diana Crawford,dcrawford@example.com,Technical Support,App freezing on specific page,Email
+TKT-10110,Billy Mason,bmason@example.net,Product Information,Shipping time estimate,Phone
+TKT-10111,Susan Day,sday@example.org,Account Management,Add authorized user,Email
+TKT-10112,Vincent Kelley,vkelley@example.com,Technical Support,Background process eating battery,Chat
+TKT-10113,Dorothy Gregory,dgregory@example.net,Refund Request,Price match guarantee,Email
+TKT-10114,Philip Andrews,pandrews@example.org,Billing,Update bank account info,Phone
+TKT-10115,Jacqueline Ferguson,jferguson@example.com,Technical Support,Schedule task not running,Email
+TKT-10116,Ernest Stone,estone@example.net,Product Information,Safety compliance question,Chat
+TKT-10117,Judith Weaver,jweaver@example.org,Account Management,Cannot view purchase history,Email
+TKT-10118,Ryan Boyd,rboyd@example.com,Technical Support,Location services not accurate,Phone
+TKT-10119,Rita Benson,rbenson@example.net,Refund Request,No longer need service,Email
+TKT-10120,Bradley Mills,bmills@example.org,Billing,Request for payment extension,Chat
+TKT-10121,Kathryn Jordan,kjordan@example.com,Technical Support,API integration failure,Email
+TKT-10122,Craig Nichols,cnichols@example.net,Product Information,Looking for discontinued product,Phone
+TKT-10123,Marie Walsh,mwalsh@example.org,Account Management,Add family member to account,Email
+TKT-10124,Tony Watson,twatson@example.com,Technical Support,Search functionality not working,Chat
+TKT-10125,Frances Quinn,fquinn@example.net,Refund Request,Poor customer service experience,Email
+TKT-10126,Todd Holmes,tholmes@example.org,Billing,Automatic payment setup,Phone
+TKT-10127,Wanda Hicks,whicks@example.com,Technical Support,Device compatibility check,Email
+TKT-10128,Juan Graves,jgraves@example.net,Product Information,Care instructions request,Chat
+TKT-10129,Bonnie Lucas,blucas@example.org,Account Management,Loyalty program inquiry,Email
+TKT-10130,Dean Riley,driley@example.com,Technical Support,Missing attachments in emails,Phone
+TKT-10131,Martha Rice,mrice@example.net,Refund Request,Defective product return,Email
+TKT-10132,Russell Mccoy,rmccoy@example.org,Billing,Payment receipt request,Chat
+TKT-10133,Paula Williamson,pwilliamson@example.com,Technical Support,Feature request submission,Email
+TKT-10134,Shawn Armstrong,sarmstrong@example.net,Product Information,Size chart request,Phone
+TKT-10135,Doris Harvey,dharvey@example.org,Account Management,Username change request,Email
+TKT-10136,Luis Kim,lkim@example.com,Technical Support,Database backup failure,Chat
+TKT-10137,Brenda Washington,bwashington@example.net,Refund Request,Purchased wrong version,Email
+TKT-10138,Craig Hunt,chunt@example.org,Billing,Change billing cycle date,Phone
+TKT-10139,Edith Mckinney,emckinney@example.com,Technical Support,Website accessibility issues,Email
+TKT-10140,Bobby Holland,bholland@example.net,Product Information,International shipping question,Chat
+TKT-10141,Joy Higgins,jhiggins@example.org,Account Management,Account verification problem,Email
+TKT-10142,Dale Richards,drichards@example.com,Technical Support,Notification settings not saving,Phone
+TKT-10143,Gladys Freeman,gfreeman@example.net,Refund Request,Online course refund request,Email
+TKT-10144,Alan Willis,awillis@example.org,Billing,Request itemized receipt,Chat
+TKT-10145,Eleanor Stephens,estephens@example.com,Technical Support,Cannot remove saved credit card,Email
+TKT-10146,Vernon Hubbard,vhubbard@example.net,Product Information,Bulk pricing inquiry,Phone
+TKT-10147,Connie Reid,creid@example.org,Account Management,Link accounts together,Email
+TKT-10148,Max Terry,mterry@example.com,Technical Support,Content filtering not working,Chat
+TKT-10149,Marjorie Wells,mwells@example.net,Refund Request,Event cancellation refund,Email
+TKT-10150,Preston Sanchez,psanchez@example.org,Billing,Request for annual statement,Phone
+TKT-10151,Edna Ramirez,eramirez@example.com,Technical Support,Platform migration assistance,Email
+TKT-10152,Claude Hopkins,chopkins@example.net,Product Information,Environmental certification inquiry,Chat
+TKT-10153,Lucille Carlson,lcarlson@example.org,Account Management,Cannot access purchase history,Email
+TKT-10154,Leroy Goodwin,lgoodwin@example.com,Technical Support,Dashboard displaying incorrect data,Phone
+TKT-10155,Hazel Howell,hhowell@example.net,Refund Request,Shipping cost refund request,Email
+TKT-10156,Clifford Mcbride,cmcbride@example.org,Billing,Group discount inquiry,Chat
+TKT-10157,Dolores Cunningham,dcunningham@example.com,Technical Support,Recurring task not scheduled,Email
+TKT-10158,Oscar Harrington,oharrington@example.net,Product Information,Product upgrade path,Phone
+TKT-10159,Wilma Zimmerman,wzimmerman@example.org,Account Management,Remove payment method,Email
+TKT-10160,Clyde Roberson,croberson@example.com,Technical Support,Graphical display issue,Chat
+TKT-10161,Audrey Franklin,afranklin@example.net,Refund Request,Double-charged for service,Email
+TKT-10162,Duane Cannon,dcannon@example.org,Billing,Payment verification needed,Phone
+TKT-10163,Evelyn Mcdonald,emcdonald@example.com,Technical Support,Import data from competitor,Email
+TKT-10164,Angelo Vaughn,avaughn@example.net,Product Information,Return policy question,Chat
+TKT-10165,Regina Briggs,rbriggs@example.org,Account Management,Update business profile,Email
+TKT-10166,Lonnie Haynes,lhaynes@example.com,Technical Support,Memory usage concerns,Phone
+TKT-10167,Thelma Luna,tluna@example.net,Refund Request,Subscription downgrade refund,Email
+TKT-10168,Darrell Norman,dnorman@example.org,Billing,Payment failed but charged,Chat
+TKT-10169,Lynne Sandoval,lsandoval@example.com,Technical Support,Export report as PDF,Email
+TKT-10170,Orlando Waters,owaters@example.net,Product Information,Looking for specifications sheet,Phone
+TKT-10171,Gwendolyn Houston,ghouston@example.org,Account Management,Change language preference,Email
+TKT-10172,Phillip Maxwell,pmaxwell@example.com,Technical Support,Profile picture not uploading,Chat
+TKT-10173,Maureen Buchanan,mbuchanan@example.net,Refund Request,Missing item in order,Email
+TKT-10174,Alvin Mcguire,amcguire@example.org,Billing,Set up recurring donations,Phone
+TKT-10175,Colleen Moody,cmoody@example.com,Technical Support,Version rollback request,Email
+TKT-10176,Ricky Hodges,rhodges@example.net,Product Information,Ingredient list request,Chat
+TKT-10177,Ethel Pratt,epratt@example.org,Account Management,Change user role permissions,Email
+TKT-10178,Melvin Ballard,mballard@example.com,Technical Support,Tracking cookie concerns,Phone
+TKT-10179,Arlene Flynn,aflynn@example.net,Refund Request,Coupon not applied to order,Email
+TKT-10180,Marvin Wilkins,mwilkins@example.org,Billing,Request W-9 form,Chat
+TKT-10181,Kristin French,kfrench@example.com,Technical Support,Mobile notification settings,Email
+TKT-10182,Ian Love,ilove@example.net,Product Information,Product demonstration request,Phone
+TKT-10183,Bernice Cobb,bcobb@example.org,Account Management,Access historical statements,Email
+TKT-10184,Jessie Owen,jowen@example.com,Technical Support,Contact sync issues with phone,Chat
+TKT-10185,Reginald Mcdaniel,rmcdaniel@example.net,Refund Request,Event postponement refund,Email
+TKT-10186,Darlene Daniel,ddaniel@example.org,Billing,Adjust monthly subscription amount,Phone
+TKT-10187,Cory Beck,cbeck@example.com,Technical Support,Document formatting issue,Email
+TKT-10188,Priscilla Shepherd,pshepherd@example.net,Product Information,Training materials request,Chat
+TKT-10189,Byron Barber,bbarber@example.org,Account Management,Excessive login attempts,Email
+TKT-10190,Jeanette Walters,jwalters@example.com,Technical Support,Cannot download reports,Phone
+TKT-10191,Milton Fleming,mfleming@example.net,Refund Request,Undelivered digital goods,Email
+TKT-10192,Suzanne Barrett,sbarrett@example.org,Billing,Contract renewal terms,Chat
+TKT-10193,Lester Sutton,lsutton@example.com,Technical Support,Custom report builder broken,Email
+TKT-10194,Naomi Maldonado,nmaldonado@example.net,Product Information,Gift wrapping options,Phone
+TKT-10195,Jimmie Sherman,jsherman@example.org,Account Management,Account transfer to new owner,Email
+TKT-10196,Gail Steele,gsteele@example.com,Technical Support,Automated workflow not triggering,Chat
+TKT-10197,Drew Singleton,dsingleton@example.net,Refund Request,Out of stock refund request,Email
+TKT-10198,Toni Hanson,thanson@example.org,Billing,Education discount eligibility,Phone
+TKT-10199,Greg Delgado,gdelgado@example.com,Technical Support,Theme customization help,Email
+TKT-10200,Janis Whitney,jwhitney@example.net,Product Information,Looking for accessories,Chat
